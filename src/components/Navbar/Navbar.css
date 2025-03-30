@@ -1,0 +1,51 @@
+.navbar {
+  transition: all 0.3s ease;
+}
+
+.brand-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--bs-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.dark-mode {
+  background-color: #212529;
+  color: #fff;
+}
+
+.navbar-nav .dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--bs-primary);
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(25%, -25%);
+}

@@ -1,0 +1,40 @@
+.register-page {
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.register-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-container.dark-mode {
+  background: #2c2f33;
+  color: #ffffff;
+}
+
+.register-container h2 {
+  font-weight: bold;
+}
+
+.dark-mode input,
+.dark-mode select {
+  background: #23272a;
+  color: white;
+  border: 1px solid #7289da;
+}
+
+.dark-mode input::placeholder {
+  color: #aaaaaa;
+}
+
+.dark-mode .btn-primary {
+  background: #7289da;
+  border: none;
+}
+
+.dark-mode .btn-primary:hover {
+  background: #5a6fb0;
+}

@@ -1,68 +1,112 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+html,
 body {
+  height: 100%;
   margin: 0;
+}
+
+#root {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  height: 100%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0;
 }
 
-button {
+.main-content {
+  flex-grow: 1; /* Asegura que el contenido principal ocupe el espacio restante */
+}
+
+footer {
+  margin-top: auto; /* Empuja el footer hacia el fondo */
+}
+
+h2 {
+  text-align: center;
+}
+
+/* Carrusel más responsive */
+.carousel-img {
+  height: 300px; /* Altura mínima para evitar cambios bruscos */
+  object-fit: cover; /* Recorta la imagen sin deformarla */
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Ajuste del texto en el carrusel */
+.carousel-caption-custom {
+  background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Ajuste de las tarjetas en modo oscuro */
+body.dark-mode .text-dark {
+  color: white !important;
+}
+
+/* Estilo para las imágenes del carrusel */
+.carousel-image {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+}
+
+/* Efecto de fondo oscuro translúcido para mejorar la legibilidad del texto */
+.carousel-caption-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 8px;
+  backdrop-filter: blur(3px);
+}
+
+/* Texto con sombra para mayor contraste */
+.carousel-caption-overlay h3,
+.carousel-caption-overlay p {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 25vh;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+.contact-card {
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-map {
+  border-radius: 10px;
+}
+
+/* Crear estilos personalizados */
+.dropzone {
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropzone:hover {
+  background-color: #f0f8ff;
+}
+
+.dropzone p {
+  margin-top: 10px;
+  color: #888;
+}
+
+.dropzone .fa-upload {
+  color: #007bff;
 }
