@@ -16,6 +16,7 @@ import CreateBook from "./pages/CreateBook";
 import BookDetail from "./pages/BookDetail"; // Ajusta la ruta según tu estructura
 import CreateReview from "./pages/CreateReview";
 import Register from "./pages/Register";
+import Loan from "./pages/Loan";
 
 const App = () => {
   const isAuthenticated = !!localStorage.getItem("authToken");
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="libro/:idLibro" element={<BookDetail />} />
+            <Route path="prestamos" element={<Loan />} />
 
             <Route
               path="crear-libro"

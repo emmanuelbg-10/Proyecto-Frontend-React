@@ -26,6 +26,11 @@ export default function Register() {
       form.elements.namedItem("confirmPassword") as HTMLInputElement
     )?.value;
 
+    if (password.length < 6) {
+      setLoading(false);
+      return setError("La contraseña debe tener al menos 6 caracteres.");
+    }
+
     if (password !== confirmPassword) {
       setLoading(false);
       return setError("Las contraseñas no coinciden.");
@@ -48,8 +53,27 @@ export default function Register() {
       await registerUser(credentials);
       setSuccess("Registro exitoso. Redirigiendo...");
       setTimeout(() => navigate("/login"), 2000);
-    } catch {
-      setError("Error al registrar usuario. Inténtalo nuevamente.");
+    } catch (error: unknown) {
+      if (
+        error instanceof Error &&
+        "response" in error &&
+        (error as { response: { data: { message: string } } }).response.data
+          .message
+      ) {
+        const errorMessage = (
+          error as { response: { data: { message: string } } }
+        ).response.data.message;
+
+        if (errorMessage.includes("correo")) {
+          setError("Este correo ya está registrado.");
+        } else if (errorMessage.includes("teléfono")) {
+          setError("Este teléfono ya está registrado.");
+        } else {
+          setError(errorMessage);
+        }
+      } else {
+        setError("Error al registrar usuario. Inténtalo nuevamente.");
+      }
     } finally {
       setLoading(false);
     }

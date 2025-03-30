@@ -41,8 +41,7 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/catalog">Catálogo</Nav.Link>
-            <GenresDropdown /> {/* 🔹 Aquí se usa el componente de géneros */}
-            <Nav.Link href="/servicios">Servicios</Nav.Link>
+            <GenresDropdown />
           </Nav>
 
           <Nav>

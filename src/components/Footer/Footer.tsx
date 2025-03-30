@@ -51,7 +51,11 @@ const Footer: React.FC = () => {
                 Catálogo
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/contact">
+              <Nav.Link
+                as={Link}
+                to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
                 Contacto
               </Nav.Link>
             </Nav>

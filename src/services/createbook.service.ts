@@ -1,4 +1,4 @@
-import { API_USERS } from "./apiUrl";
+import { API_COPY, API_USERS } from "./apiUrl";
 
 export const createBook = async (userId: number, formData: FormData) => {
   const response = await fetch(`${API_USERS}/${userId}/libros`, {
@@ -21,16 +21,13 @@ export const createBook = async (userId: number, formData: FormData) => {
 export const createCopies = async (bookId: number, copies: number) => {
   for (let i = 0; i < copies; i++) {
     try {
-      const response = await fetch(
-        `http://localhost:8080/api/v1/copiaLibros/${bookId}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        }
-      );
+      const response = await fetch(`${API_COPY}/${bookId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      });
 
       if (!response.ok) {
         console.error("Error al crear la copia del libro", response.status);

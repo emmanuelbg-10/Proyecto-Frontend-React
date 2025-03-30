@@ -1,4 +1,4 @@
-import { API_AUTH } from "./apiUrl";
+import { API_AUTH, API_USERS } from "./apiUrl";
 import {
   AuthResponse,
   LoginCredentials,
@@ -22,7 +22,7 @@ export async function loginUser(
 export async function registerUser(
   credentials: RegisterCredentials
 ): Promise<void> {
-  const response = await fetch("http://localhost:8080/api/v1/usuarios", {
+  const response = await fetch(`${API_USERS}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials),

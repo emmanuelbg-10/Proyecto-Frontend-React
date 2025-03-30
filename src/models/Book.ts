@@ -1,4 +1,3 @@
-// src/models/Book.ts
 import { Usuario } from "./Usuario";
 import { Review } from "./Review";
 
